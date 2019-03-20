@@ -1,0 +1,15 @@
+version: '3'
+services:
+  flask:
+    build: ./app
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_DEBUG=1
+      - PYTHONUNBUFFERED=True
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./app:/app
+    container_name: flask-opencv
+    # command: gunicorn -b 0.0.0.0:5000 app:app --reload
+    command: flask run --host=0.0.0.0
