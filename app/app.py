@@ -31,7 +31,7 @@ def face_detect():
     try:
       content = request.get_json()
 
-      img = crowd = url_to_image(content['url'])
+      img = url_to_image(content['url'])
       gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
       faces = face_cascade.detectMultiScale(gray, 1.3, 5)
 
